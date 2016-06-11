@@ -2,15 +2,14 @@ server:
     port:8081
 #    domain:'www.bluestroy.com'
 ---
-grails:
-    profile: web
-    codegen:
-        defaultPackage: carmanage
+datalist:
+    max:5
 info:
     app:
         name: '@info.app.name@'
         version: '@info.app.version@'
         grailsVersion: '@info.app.grailsVersion@'
+        didplayName: 'Car Manage'
 spring:
     groovy:
         template:
@@ -18,6 +17,9 @@ spring:
 
 ---
 grails:
+    profile: web
+    codegen:
+        defaultPackage: carmanage
     mime:
         disable:
             accept:

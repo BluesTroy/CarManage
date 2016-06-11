@@ -17,7 +17,7 @@ class CarInfo {
     Integer inventory
     String memo
 
-    static belongsTo = [warehouse:WareHouse]
+    static belongsTo = [warehouse:Warehouse]
 
 
     static constraints = {

@@ -1,6 +1,6 @@
 package carmanage
 
-class WareHouse {
+class Warehouse {
     String id
     String dateCreated
     String lastUpdate
@@ -10,12 +10,16 @@ class WareHouse {
     String warehouseCode
     Integer maxInventory
     Integer nowInventory
+    String warehouseName
+    String warehouseAddress
     String memo
 
     static constraints = {
         warehouseCode nullable: false,maxSize: 20
         maxInventory nullable: false
         nowInventory nullable: false
+        warehouseName nullable: false, maxSize: 20
+        warehouseAddress nullable: false, maxSize: 100
         memo nullable: true, maxSize: 100
     }
 
