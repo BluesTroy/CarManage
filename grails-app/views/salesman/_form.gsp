@@ -25,7 +25,7 @@
                 <label for="sex">性别</label>
                 <g:radioGroup id="sex" name="sex" values="[true, false]" labels="['男','女']"
                     value="${salesman?.sex}">
-                  <p>${it.label} ${it.radio}</p>
+                  <span>${it.label} ${it.radio}</span>
                 </g:radioGroup>
             </div>
             <div class="form-group col-md-3">

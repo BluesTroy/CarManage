@@ -9,6 +9,17 @@ class StatusToStringTagLib {
         out<<g.message(code:"salesman.sex.${attrs.key}")
     }
 
+    def customerSexToString={attrs,body->
+        out<<g.message(code:"customer.sex.${attrs.key}")
+    }
+
+    def memberToString={attrs,body->
+        out<<g.message(code:"customer.isMember.${attrs.key}")
+    }
+
+    def statusToString={attrs,body->
+        out<<g.message(code:"orderInfo.status.${attrs.key}")
+    }
 
 
 

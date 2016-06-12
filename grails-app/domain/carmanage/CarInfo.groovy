@@ -18,7 +18,7 @@ class CarInfo {
     String memo
 
     static belongsTo = [warehouse:Warehouse]
-
+    static hasMany = [orderDetails:OrderDetail]
 
     static constraints = {
         carCode nullable: false, maxSize: 20

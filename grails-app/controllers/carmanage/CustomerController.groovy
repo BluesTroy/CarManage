@@ -2,16 +2,16 @@ package carmanage
 
 import grails.converters.JSON
 
-class SalesmanController {
+class CustomerController {
 
     static layout = "main"
 
-    def salesmanService
+    def customerService
 
     def loadPage() {
         def result = search(params)
         render(template: "/${controllerName}/table_list",
-                model:[salesmanList:result.salesmanList, total: result.total])
+                model:[customerList:result.customerList, total: result.total])
     }
 
     protected def search(params) {
@@ -21,17 +21,17 @@ class SalesmanController {
         if (!params.sort) params.sort = 'dateCreated'
 
         def searchClosure = {
-            if (params.staffCode) {
-                like('staffCode', "%${params.staffCode}%")
+            if (params.name) {
+                like('name', "%${params.name}%")
             }
-            if (params.realName) {
-                like('realName', "%${params.realName}%")
+            if (params.identityCard) {
+                like('identityCard', "%${params.identityCard}%")
             }
         }
 
-        def c = Salesman.createCriteria()
-        def salesmanList = c.list(params,searchClosure)
-        [salesmanList:salesmanList, total: salesmanList.totalCount]
+        def c = Customer.createCriteria()
+        def customerList = c.list(params,searchClosure)
+        [customerList:customerList, total: customerList.totalCount]
 
 
     }
@@ -41,35 +41,35 @@ class SalesmanController {
     }
 
     def create(){
-        def salesman = new Salesman()
+        def customer = new Customer()
         render(template: "/${controllerName}/form",
-                model:[salesman: salesman, action:actionName])
+                model:[customer: customer, action:actionName])
     }
 
     def edit() {
         render(template: "/${controllerName}/form",
-                model: [salesman: Salesman.get(params.id), action: actionName])
+                model: [customer: Customer.get(params.id), action: actionName])
     }
 
     def save() {
         def haserror = false
         def message = new StringBuffer()
-        def salesman
+        def customer
 
         log.error(params)
         println(actionName)
         println(params.domainAction)
         if (params.domainAction == 'edit') {
-            salesman = Salesman.get(params.id)
-            salesman.properties = params
+            customer = Customer.get(params.id)
+            customer.properties = params
         } else if (params.domainAction == 'create') {
-            salesman = new Salesman(params)
+            customer = new Customer(params)
         }
-        if (!salesman.validate()) {
+        if (!customer.validate()) {
             haserror = true
-            message.append(g.domainError([model:salesman]))
+            message.append(g.domainError([model:customer]))
         } else {
-            salesmanService.save(salesman)
+            customerService.save(customer)
             message.append('操作成功')
         }
         render(contentType: "application/json", encoding: "UTF-8") {
@@ -82,8 +82,8 @@ class SalesmanController {
     }
 
     def delete() {
-        def salesman = Salesman.get(params.id)
-        salesman.delete(flush:true)
+        def customer = Customer.get(params.id)
+        customer.delete(flush:true)
         render(contentType:'application/json'){
             def result=['status':'success','message':'操作成功']
             render result as JSON

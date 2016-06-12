@@ -10,7 +10,7 @@ class Customer {
 
     String name
     String identityCard
-    short sex
+    Boolean sex
     java.sql.Date birthday
     String telephone
     String email
@@ -29,7 +29,7 @@ class Customer {
         address nullable: true, maxSize: 100
         education nullable: true
         isMember nullable: false
-        memo nullable: false, maxSize: 100
+        memo nullable: true, maxSize: 100
 
     }
 

@@ -20,7 +20,7 @@ class OrderDetail {
         number nullable: false
         singlePrice nullable: false
         totalPrice nullable: false
-        memo nullable: false, maxSize: 100
+        memo nullable: true, maxSize: 100
 
     }
 
