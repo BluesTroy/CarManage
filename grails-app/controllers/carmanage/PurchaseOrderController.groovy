@@ -2,16 +2,16 @@ package carmanage
 
 import grails.converters.JSON
 
-class SupplierController {
+class PurchaseOrderController {
 
     static layout = "main"
 
-    def supplierService
+    def purchaseOrderService
 
     def loadPage() {
         def result = search(params)
         render(template: "/${controllerName}/table_list",
-                model:[supplierList:result.supplierList, total: result.total])
+                model:[purchaseOrderList:result.purchaseOrderList, total: result.total])
     }
 
     protected def search(params) {
@@ -21,17 +21,14 @@ class SupplierController {
         if (!params.sort) params.sort = 'dateCreated'
 
         def searchClosure = {
-            if (params.supplierCode) {
-                like('supplierCode', "%${params.supplierCode}%")
-            }
-            if (params.supplierName) {
-                like('supplierName', "%${params.supplierName}%")
+            if (params.orderCode) {
+                like('orderCode', "%${params.orderCode}%")
             }
         }
 
-        def c = Supplier.createCriteria()
-        def supplierList = c.list(params,searchClosure)
-        [supplierList:supplierList, total: supplierList.totalCount]
+        def c = PurchaseOrder.createCriteria()
+        def purchaseOrderList = c.list(params,searchClosure)
+        [purchaseOrderList:purchaseOrderList, total: purchaseOrderList.totalCount]
 
 
     }
@@ -41,36 +38,36 @@ class SupplierController {
     }
 
     def create(){
-        def supplier = new Supplier()
+        def purchaseOrder = new PurchaseOrder()
         render(template: "/${controllerName}/form",
-                model:[supplier: supplier, action:actionName])
+                model:[purchaseOrder: purchaseOrder, action:actionName])
     }
 
     def edit() {
         render(template: "/${controllerName}/form",
-                model: [supplier: Supplier.get(params.id), action: actionName])
+                model: [purchaseOrder: PurchaseOrder.get(params.id), action: actionName])
     }
 
     def save() {
         def haserror = false
         def message = new StringBuffer()
-        def supplier
+        def purchaseOrder
 
         log.error(params)
         println(actionName)
         println(params.domainAction)
         if (params.domainAction == 'edit') {
-            supplier = Supplier.get(params.id)
-            supplier.properties = params
+            purchaseOrder = PurchaseOrder.get(params.id)
+            purchaseOrder.properties = params
         } else if (params.domainAction == 'create') {
-            supplier = new Supplier(params)
-            supplier.supplierCode = new Date().getTime().toString()
+            purchaseOrder = new PurchaseOrder(params)
+            purchaseOrder.orderCode = new Date().getTime().toString()
         }
-        if (!supplier.validate()) {
+        if (!purchaseOrder.validate()) {
             haserror = true
-            message.append(g.domainError([model:supplier]))
+            message.append(g.domainError([model:purchaseOrder]))
         } else {
-            supplierService.save(supplier)
+            purchaseOrderService.save(purchaseOrder)
             message.append('操作成功')
         }
         render(contentType: "application/json", encoding: "UTF-8") {
@@ -83,8 +80,8 @@ class SupplierController {
     }
 
     def delete() {
-        def supplier = Supplier.get(params.id)
-        supplier.delete(flush:true)
+        def purchaseOrder = PurchaseOrder.get(params.id)
+        purchaseOrder.delete(flush:true)
         render(contentType:'application/json'){
             def result=['status':'success','message':'操作成功']
             render result as JSON

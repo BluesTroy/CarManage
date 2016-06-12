@@ -21,6 +21,10 @@ class StatusToStringTagLib {
         out<<g.message(code:"orderInfo.status.${attrs.key}")
     }
 
+    def storageStatusToString={attrs,body->
+        out<<g.message(code:"purchaseOrder.storageStatus.${attrs.key}")
+    }
+
 
 
 }

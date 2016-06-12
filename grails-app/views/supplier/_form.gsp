@@ -8,7 +8,7 @@
             <div class="form-group col-md-3">
                 <label for="supplierCode">商户代码</label>
                 <g:if test="${action == 'edit'}">
-                    <span>${supplier?.supplierCode}</span>
+                    <span id="supplierCode">${supplier?.supplierCode}</span>
                 </g:if>
                 <g:else>
                     <input id="supplierCode" class="form-control" type="text" placeholder="必填项"

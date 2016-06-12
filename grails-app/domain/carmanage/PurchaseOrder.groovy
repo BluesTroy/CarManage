@@ -12,11 +12,11 @@ class PurchaseOrder {
     Double singlePrice
     Double totalPrice
     Date orderTime
-    short storageStatus
+    Boolean storageStatus //true:已入库 false:待入库
     Date storageTime
     String memo
     Supplier supplier
-
+    CarInfo carInfo
 
 
     static constraints = {
