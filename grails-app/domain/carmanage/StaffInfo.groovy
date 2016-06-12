@@ -2,8 +2,8 @@ package carmanage
 
 class StaffInfo {
     String id
-    String dateCreated
-    String lastUpdate
+    Date dateCreated
+    Date lastUpdate
     String createUser
     String updateUser
 

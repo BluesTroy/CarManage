@@ -2,8 +2,8 @@ package carmanage
 
 class PurchaseOrder {
     String id
-    String dateCreated
-    String lastUpdated
+    Date dateCreated
+    Date lastUpdated
     String createUser
     String updateUser
 

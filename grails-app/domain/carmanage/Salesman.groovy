@@ -3,14 +3,14 @@ package carmanage
 class Salesman {
 
     String id
-    String dateCreated
-    String lastUpdate
+    Date dateCreated
+    Date lastUpdate
     String createUser
     String updateUser
 
     String staffCode
     String realName
-    short sex
+    Boolean sex         //true:男 false:女
     java.sql.Date birthday
     String telephone
     String phone

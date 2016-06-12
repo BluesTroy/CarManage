@@ -1,6 +1,6 @@
 package carmanage
 
-class SystemRole {
+class SystemParameter {
 
     String id
     Date dateCreated
@@ -8,12 +8,14 @@ class SystemRole {
     String createUser
     String updateUser
 
-    String roleName
+    String parameterName
+    String parameterValue
     String description
 
 
     static constraints = {
-        roleName nullable: false, maxSize: 20
+        parameterName nullable: false, maxSize: 20
+        parameterValue nullable: false, maxSize: 50
         description nullable: false, maxSize: 100
 
     }

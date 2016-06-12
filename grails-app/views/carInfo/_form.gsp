@@ -1,4 +1,3 @@
-<%@ page import="carmanage.Warehouse" %>
 <div class="container-fluid">
     <g:form name="carInfoForm" url="[controller: 'carInfo', action: 'save']" useToken="true">
         <g:hiddenField name="id" value="${carInfo?.id}"/>
@@ -38,9 +37,9 @@
                        name="inventory" value="${carInfo?.inventory}">
             </div>
             <div class="form-group col-md-3">
-                <label for="fuelConsumption">仓库</label>
-                <g:select name="warehouse" class="form-control" from="${carmanage.Warehouse.list()}" noSelection="['':'请选择...']" optionKey="id"
-                        optionValue="warehouseName" />
+                <label for="warehouse">仓库</label>
+                <g:select id="warehouse" name="warehouse" class="form-control" from="${carmanage.Warehouse.list()}" noSelection="['':'请选择...']" optionKey="id"
+                          optionValue="warehouseName" />
             </div>
         </div>
     </g:form>

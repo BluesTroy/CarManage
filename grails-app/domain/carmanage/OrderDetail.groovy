@@ -3,8 +3,8 @@ package carmanage
 class OrderDetail {
 
     String id
-    String dateCreated
-    String lastUpdate
+    Date dateCreated
+    Date lastUpdate
     String createUser
     String updateUser
 
