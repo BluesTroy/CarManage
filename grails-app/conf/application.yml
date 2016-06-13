@@ -1,9 +1,9 @@
 server:
-    port:8081
-#    domain:'www.bluestroy.com'
+    port: 8081
+    domain: 'www.bluestroy.com'
 ---
 datalist:
-    max:5
+    max: 5
 info:
     app:
         name: '@info.app.name@'

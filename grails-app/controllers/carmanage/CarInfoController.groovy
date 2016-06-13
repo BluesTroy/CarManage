@@ -37,6 +37,7 @@ class CarInfoController {
     }
 
     def index() {
+        log.debug("test..........")
         search(params)
     }
 
