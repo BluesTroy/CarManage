@@ -1,7 +1,8 @@
 <!doctype html>
 <html>
     <head>
-        <meta name="layout" content="main"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        %{--<meta name="layout" content="main"/>--}%
         <title>Welcome to Grails</title>
         <style type="text/css" media="screen">
             #status {

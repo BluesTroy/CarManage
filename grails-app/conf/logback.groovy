@@ -9,6 +9,9 @@ appender('STDOUT', ConsoleAppender) {
 }
 
 root(ERROR, ['STDOUT'])
+root(DEBUG, ['STDOUT'])
+//logger("grails.app.controllers.carmanage",DEBUG,['STDOUT'], false)
+//logger("grails.app.domain.carmanage",DEBUG,['STDOUT'], false)
 
 def targetDir = BuildSettings.TARGET_DIR
 if (Environment.isDevelopmentMode() && targetDir) {

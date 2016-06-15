@@ -6,7 +6,11 @@ buildscript {
         mavenLocal()
         maven { url "https://repo.grails.org/grails/core" }
     }
+<<<<<<< HEAD
     dependencies {        
+=======
+    dependencies {
+>>>>>>> aef35e1b1329fb99836d102dcff7b8aba7bd9369
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath 'com.bertramlabs.plugins:asset-pipeline-gradle:2.5.0'
         classpath "org.grails.plugins:hibernate:4.3.10.5"
@@ -18,7 +22,11 @@ plugins {
 }
 
 version "0.1"
+<<<<<<< HEAD
 group "CarManage"
+=======
+group "carmanage"
+>>>>>>> aef35e1b1329fb99836d102dcff7b8aba7bd9369
 
 apply plugin: "spring-boot"
 apply plugin: "war"
@@ -64,6 +72,10 @@ dependencies {
     compile "org.grails.plugins:scaffolding"
 
     runtime "org.grails.plugins:asset-pipeline"
+<<<<<<< HEAD
+=======
+    runtime "mysql:mysql-connector-java:5.1.29"
+>>>>>>> aef35e1b1329fb99836d102dcff7b8aba7bd9369
 
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"

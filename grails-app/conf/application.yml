@@ -1,13 +1,15 @@
+server:
+    port: 8081
+    domain: 'www.bluestroy.com'
 ---
-grails:
-    profile: web
-    codegen:
-        defaultPackage: CarManage
+datalist:
+    max: 5
 info:
     app:
         name: '@info.app.name@'
         version: '@info.app.version@'
         grailsVersion: '@info.app.grailsVersion@'
+        didplayName: 'Car Manage'
 spring:
     groovy:
         template:
@@ -15,6 +17,9 @@ spring:
 
 ---
 grails:
+    profile: web
+    codegen:
+        defaultPackage: carmanage
     mime:
         disable:
             accept:
@@ -80,23 +85,25 @@ endpoints:
 dataSource:
     pooled: true
     jmxExport: true
-    driverClassName: org.h2.Driver
-    username: sa
-    password:
+#    driverClassName:   org.h2.Driver
+    driverClassName:   com.mysql.jdbc.Driver
+    username: root
+    password: 123456
 
 environments:
     development:
         dataSource:
-            dbCreate: create-drop
-            url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            dbCreate: update
+#            url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            url: jdbc:mysql://localhost:3306/car_manage?useUnicode=true
     test:
         dataSource:
             dbCreate: update
-            url: jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            url: jdbc:mysql://localhost:3306/car_manage?useUnicode=true
     production:
         dataSource:
             dbCreate: update
-            url: jdbc:h2:./prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            url: jdbc:mysql://localhost:3306/car_manage?useUnicode=true
             properties:
                 jmxEnabled: true
                 initialSize: 5
